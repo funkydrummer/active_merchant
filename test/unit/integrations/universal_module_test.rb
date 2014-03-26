@@ -4,15 +4,15 @@ class UniversalModuleTest < Test::Unit::TestCase
   include ActiveMerchant::Billing::Integrations
 
   def test_credential_based_url
-    assert_equal 'zork', Universal.credential_based_url(:forward_url => 'zork')
+    assert_equal 'zork', Universal.credential_based_url({:forward_url => 'zork'})
   end
 
   def test_notification
-    assert_instance_of Universal::Notification, Universal.notification('name=cody')
+    assert_instance_of Universal::Notification, Universal.notification('name=zork')
   end
 
   def test_return
-    assert_instance_of Universal::Return, Universal.return('name=cody')
+    assert_instance_of Universal::Return, Universal.return('name=zork')
   end
 
   def test_sign
